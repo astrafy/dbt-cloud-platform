@@ -1,0 +1,15 @@
+
+client-auth:
+  target: default
+  outputs:
+    # Service account
+    sa:
+      type: bigquery
+      project: "{{ var('project_id') }}"
+      dataset: "{{ var('database_id') }}"
+      location: "{{ var('database_id') }}"
+      method: oauth
+      job_execution_timeout_seconds: 300
+      job_retries: 1
+      priority: interactive
+      threads: 3

@@ -1,0 +1,52 @@
+
+name: Upload dockerfile to the artifact registry
+on:
+  push:
+    branches:
+      - main
+      - 'dev*'
+    tags:
+      - '*'
+jobs:
+  Upload-docker:
+    runs-on: ubuntu-latest
+    environment: common
+    permissions:
+      contents: "read"
+      id-token: "write"
+    steps:
+      # Download the repository files
+      - id: "checkout"
+        name: "Github repository checkout"
+        uses: actions/checkout@v3
+      #Authentication
+      - id: "auth"
+        name: "Authenticate to Google Cloud"
+        uses: "google-github-actions/auth@v1"
+        with:
+          workload_identity_provider: ${{ vars.WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ vars.GCLOUD_SERVICE_ACCOUNT }}
+      # Setup gcloud CLI
+      - id: setup-gcloud
+        name: Set up Cloud SDK
+        uses: google-github-actions/setup-gcloud@v1
+
+      # Configure docker in google cloud
+      - name: Configure Docker Client
+        shell: bash
+        run: |-
+          gcloud auth configure-docker ${{ vars.CONTAINER_REGISTRY }}
+
+      # Build the docker image
+      - name: Build Docker Image
+        shell: bash
+        run: |-
+          docker build . -t ${{ vars.DATA_PRODUCT }}:latest --build-arg model_name=${{ vars.DATA_PRODUCT }}
+
+      # Push the image to the artifact registry
+      - name: Push Docker Image to Artifact Registry
+        shell: bash
+        run: |-
+          docker tag ${{ vars.DATA_PRODUCT }}:latest ${{ vars.CONTAINER_REGISTRY }}/${{ vars.PROJECT_ID }}/${{ vars.REGISTRY_REPOSITORY }}/${{ vars.DATA_PRODUCT }}:$GITHUB_SHA
+          docker tag ${{ vars.DATA_PRODUCT }}:latest ${{ vars.CONTAINER_REGISTRY }}/${{ vars.PROJECT_ID }}/${{ vars.REGISTRY_REPOSITORY }}/${{ vars.DATA_PRODUCT }}:$GITHUB_REF_NAME
+          docker push -a ${{ vars.CONTAINER_REGISTRY }}/${{ vars.PROJECT_ID }}/${{ vars.REGISTRY_REPOSITORY }}/${{ vars.DATA_PRODUCT }}

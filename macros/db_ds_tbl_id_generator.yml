@@ -1,0 +1,15 @@
+version: 2
+
+macros:
+
+  - name: generate_database_name
+    description: >
+      Overwrites the default generate_database_macro, by using
+      the custom macro that uses the same arguments, and additional
+      naming generation conditions. Imports from the common package.
+
+  - name: generate_schema_name
+    description: >
+      Overwrites the default generate_schema_macro, by using
+      the custom macro that uses the same arguments, and additional
+      naming generation conditions. Imports from the common package.

@@ -1,0 +1,16 @@
+{
+  "template": "https://github.com/astrafy/dbt-cloud-template.git",
+  "commit": "ae4118387cd33786fbbddc7abbe4063537c916ae",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "project_name": "platform",
+      "project_slug": "platform",
+      "google_cloud_project_id": "awesome_project",
+      "database_id": "awesome_database",
+      "database_location": "EU",
+      "_template": "https://github.com/astrafy/dbt-cloud-template.git"
+    }
+  },
+  "directory": null
+}

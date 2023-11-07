@@ -1,0 +1,28 @@
+selectors:
+  - name: raw
+    description: >
+      Runs all the models in the raw data layer
+    definition:
+      union:
+        - method: path
+          value: models/*/raw
+
+  - name: stg
+    description: >
+      Runs all the models in the staging data layer
+    definition:
+      union:
+        - method: path
+          value: models/*/staging
+
+  - name: dm
+    description: >
+      Runs all the models in the datamart data layer
+    definition:
+      union:
+        - method: path
+          value: models/*/staging
+        - exclude:
+            - union:
+                - method: package
+                  value: dbt_artifacts
