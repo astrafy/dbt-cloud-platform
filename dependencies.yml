@@ -1,7 +1,7 @@
 packages:
-#  - git: "https://{{env_var('DBT_USER_NAME')}}:{{env_var('DBT_ENV_SECRET_DEPLOY_TOKEN')}}@gitlab.com/a8042/data-analytics/dp-common.git"
-#    revision: main
-#    warn-unpinned: false
+  - git: "https://{{env_var('DBT_USER_NAME')}}:{{env_var('DBT_ENV_SECRET_DEPLOY_TOKEN')}}@gitlab.com/a8042/data-analytics/dp-common.git"
+    revision: main
+    warn-unpinned: false
   - package: elementary-data/elementary
     version: 0.12.0
   - package: dbt-labs/dbt_utils
