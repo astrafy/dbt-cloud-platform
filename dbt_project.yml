@@ -1,44 +1,31 @@
-
 name: "platform"
+version: "2.1.0"
 config-version: 2
 
 profile: "default"
+require-dbt-version: ">=1.6.0"
 
-model-paths: ["models"]
-analysis-paths: ["analyses"]
-test-paths: ["tests"]
-seed-paths: ["seeds"]
-macro-paths: ["macros"]
-snapshot-paths: ["snapshots"]
+model-paths: [ "models" ]
+analysis-paths: [ "analyses" ]
+test-paths: [ "tests" ]
+seed-paths: [ "jaffle-data" ]
+macro-paths: [ "macros" ]
+snapshot-paths: [ "snapshots" ]
 
-# directories to be removed by `dbt clean`
+target-path: "target"
 clean-targets:
   - "target"
   - "dbt_packages"
-  - "logs"
 
-require-dbt-version: [">=1.6.0", "<2.0.0"]
+vars:
+  truncate_timespan_to: "{{ current_timestamp() }}"
+  "dbt_date:time_zone": "America/Los_Angeles"
 
-
-query-comment:
-  comment: "{{ common.query_comment(node) }}"
-  job-label: True
-
-
-quoting:
-  database: true
-  schema: true
-  identifier: true
+seeds:
+  jaffle_shop_mesh_platform:
+    +schema: jaffle_shop_raw
 
 models:
-  platform:
+  jaffle_shop_mesh_platform:
     staging:
-      +materialized: table
-    intermediate:
-      +materialized: table
-    datamarts:
-      +materialized: table
-
-
-  dbt_project_evaluator:
-    +enabled: '{{ '{{ env_var("DBT_ENV_NAME", "DEV") != "DEV" | as_bool }}' }}'
+      +materialized: view
