@@ -1,0 +1,21 @@
+models:
+  - name: stg_locations
+    description: List of open locations with basic cleaning and transformation applied, one row per location.
+    access: public
+    group: platform
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: location_id
+        description: The unique key for each location.
+        tests:
+          - not_null
+          - unique
+        data_type: text
+      - name: location_name
+        data_type: text
+      - name: tax_rate
+        data_type: float
+      - name: opened_at
+        data_type: timestamp_ntz

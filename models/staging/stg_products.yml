@@ -1,0 +1,27 @@
+models:
+  - name: stg_products
+    description: Product (food and drink items that can be ordered) data with basic cleaning and transformation applied, one row per product.
+    access: public
+    group: platform
+    config:
+      contract:
+        enforced: true
+    columns:
+      - name: product_id
+        description: The unique key for each product.
+        tests:
+          - not_null
+          - unique
+        data_type: text
+      - name: product_name
+        data_type: text
+      - name: product_type
+        data_type: text
+      - name: product_description
+        data_type: text
+      - name: product_price
+        data_type: number
+      - name: is_food_item
+        data_type: boolean
+      - name: is_drink_item
+        data_type: boolean
