@@ -25,7 +25,7 @@ seeds:
   +tags: js_platform_dbt_cl
 
 models:
-  +tags: js_platform_dbt_cl
   js_platform_dbt_cl:
+    +tags: js_platform_dbt_cl
     staging:
       +materialized: view
