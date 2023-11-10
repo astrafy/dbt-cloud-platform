@@ -4,3 +4,5 @@ dbt_packages/
 logs/
 .python-version
 .idea
+.user.yml
+package-lock.yml

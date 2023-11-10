@@ -1,4 +1,4 @@
-name: "platform"
+name: "js_platform_dbt_cl"
 version: "2.1.0"
 config-version: 2
 
@@ -22,10 +22,10 @@ vars:
   "dbt_date:time_zone": "America/Los_Angeles"
 
 seeds:
-  jaffle_shop_mesh_platform:
-    +schema: jaffle_shop_raw
+  +tags: js_platform_dbt_cl
 
 models:
-  jaffle_shop_mesh_platform:
+  +tags: js_platform_dbt_cl
+  js_platform_dbt_cl:
     staging:
       +materialized: view

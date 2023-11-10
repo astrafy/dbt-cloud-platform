@@ -1,13 +1,13 @@
-
-client-auth:
-  target: default
+astrafy:
+  target: dev
   outputs:
     # Service account
-    sa:
+    dev:
       type: bigquery
-      project: "{{ var('project_id') }}"
-      dataset: "{{ var('database_id') }}"
-      location: "{{ var('database_id') }}"
+      project: "astrafy-gke-dev"
+      execution_project: astrafy-gke-dev
+      schema: na
+      location: "EU"
       method: oauth
       job_execution_timeout_seconds: 300
       job_retries: 1
