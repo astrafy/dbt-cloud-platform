@@ -1,5 +1,5 @@
 packages:
-  - git: "https://{{env_var('DBT_USER_NAME')}}:{{env_var('DBT_ENV_SECRET_DEPLOY_TOKEN')}}@gitlab.com/a8042/data-analytics/dp-common.git"
+  - git: "https://{{env_var('DBT_GITLAB_DEPLOY_TOKEN_USERNAME')}}:{{env_var('DBT_ENV_SECRET_DEPLOY_TOKEN')}}@gitlab.com/a8042/data-analytics/dp-common.git"
     revision: main
     warn-unpinned: false
   - package: elementary-data/elementary
