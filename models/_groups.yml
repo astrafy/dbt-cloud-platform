@@ -11,3 +11,7 @@ groups:
     owner:
       email: ben.jaffleck@jaffleshop.com
       name: Ben Jaffleck
+  - name: public_group
+    owner:
+      name: Astrafy Demo Team
+      email: demo@astrafy.io

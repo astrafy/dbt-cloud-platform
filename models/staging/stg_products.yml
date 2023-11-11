@@ -1,7 +1,7 @@
 models:
   - name: stg_products
-    group: public_group
     access: public
+    group: platform
     description: Product (food and drink items that can be ordered) data with basic cleaning and transformation applied, one row per product.
     columns:
       - name: product_id
