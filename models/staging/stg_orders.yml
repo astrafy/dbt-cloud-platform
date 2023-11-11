@@ -1,7 +1,7 @@
 models:
   - name: stg_orders
-    group: public_group
     access: public
+    group: platform
     description: Order data with basic cleaning and transformation applied, one row per order.
     columns:
       - name: order_id

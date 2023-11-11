@@ -1,7 +1,7 @@
 models:
   - name: stg_customers
-    group: public_group
     access: public
+    group: platform
     description: Customer data with basic cleaning and transformation applied, one row per customer.
     columns:
       - name: customer_id
