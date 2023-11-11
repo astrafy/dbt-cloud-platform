@@ -1,5 +1,7 @@
 models:
   - name: stg_locations
+    group: public_group
+    access: public
     description: List of open locations with basic cleaning and transformation applied, one row per location.
     columns:
       - name: location_id

@@ -1,10 +1,3 @@
-# First, define the group and owner
-groups:
-  - name: public_group
-    owner:
-      name: Astrafy Demo Team
-      email: demo@astrafy
-
 models:
   - name: stg_orders
     group: public_group
