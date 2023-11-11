@@ -1,5 +1,14 @@
+# First, define the group and owner
+groups:
+  - name: public_group
+    owner:
+      name: Astrafy Demo Team
+      email: demo@astrafy
+
 models:
   - name: stg_products
+    group: public_group
+    access: public
     description: Product (food and drink items that can be ordered) data with basic cleaning and transformation applied, one row per product.
     columns:
       - name: product_id

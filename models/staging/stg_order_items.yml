@@ -1,5 +1,15 @@
+# First, define the group and owner
+groups:
+  - name: public_group
+    owner:
+      name: Astrafy Demo Team
+      email: demo@astrafy
+
+# Then, add 'group' + 'access' modifier to specific models
 models:
   - name: stg_order_items
+    group: public_group
+    access: public
     description: Individual food and drink items that make up our orders, one row per item.
     columns:
       - name: order_item_id
