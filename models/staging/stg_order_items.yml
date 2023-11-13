@@ -1,10 +1,17 @@
-# Then, add 'group' + 'access' modifier to specific models
 models:
   - name: stg_order_items
     description: Individual food and drink items that make up our orders, one row per item.
+    config:
+      contract:
+        enforced: true
     columns:
       - name: order_item_id
         description: The unique key for each order item.
         tests:
           - not_null
           - unique
+        data_type: string
+      - name: order_id
+        data_type: string
+      - name: product_id
+        data_type: string
