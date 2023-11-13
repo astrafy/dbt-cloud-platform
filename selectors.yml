@@ -13,7 +13,7 @@ selectors:
     definition:
       union:
         - method: path
-          value: models/*/staging
+          value: models/staging
 
   - name: dm
     description: >
@@ -21,7 +21,7 @@ selectors:
     definition:
       union:
         - method: path
-          value: models/*/staging
+          value: models/datamart
         - exclude:
             - union:
                 - method: package
