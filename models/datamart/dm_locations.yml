@@ -1,0 +1,11 @@
+models:
+  - name: dm_locations
+    description: List of open locations with basic cleaning and transformation applied, one row per location.
+    access: public
+    group: platform
+    columns:
+      - name: location_id
+        description: The unique key for each location.
+        tests:
+          - not_null
+          - unique
