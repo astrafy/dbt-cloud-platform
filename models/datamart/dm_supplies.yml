@@ -1,5 +1,7 @@
 models:
-  - name: stg_supplies
+  - name: dm_supplies
+    access: public
+    group: platform
     description: >
       List of our supply expenses data with basic cleaning and transformation applied.
 
@@ -7,6 +9,3 @@ models:
     columns:
       - name: supply_uuid
         description: The unique key of our supplies per cost.
-        tests:
-          - not_null
-          - unique

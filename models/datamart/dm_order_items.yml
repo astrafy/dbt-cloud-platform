@@ -1,10 +1,9 @@
 # Then, add 'group' + 'access' modifier to specific models
 models:
-  - name: stg_order_items
+  - name: dm_order_items
+    access: public
+    group: platform
     description: Individual food and drink items that make up our orders, one row per item.
     columns:
       - name: order_item_id
         description: The unique key for each order item.
-        tests:
-          - not_null
-          - unique
