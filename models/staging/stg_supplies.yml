@@ -4,9 +4,23 @@ models:
       List of our supply expenses data with basic cleaning and transformation applied.
 
       One row per supply cost, not per supply. As supply costs fluctuate they receive a new row with a new UUID. Thus there can be multiple rows per supply_id.
+    config:
+      contract:
+        enforced: true
     columns:
       - name: supply_uuid
         description: The unique key of our supplies per cost.
         tests:
           - not_null
           - unique
+        data_type: string
+      - name: supply_id
+        data_type: string
+      - name: product_id
+        data_type: string
+      - name: supply_name
+        data_type: string
+      - name: supply_cost
+        data_type: float64
+      - name: is_perishable_supply
+        data_type: boolean
