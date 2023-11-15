@@ -31,3 +31,5 @@ models:
       +materialized: view
     datamart:
       +materialized: table
+  elementary:
+    +enabled: true
