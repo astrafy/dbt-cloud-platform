@@ -6,3 +6,4 @@ logs/
 .idea
 .user.yml
 package-lock.yml
+dbt
