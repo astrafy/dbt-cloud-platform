@@ -2,7 +2,7 @@ version: 2
 
 sources:
   - name: ecom
-    database: "{{env_var('SEED_PROJECT', 'internal-data-stg-aaa-prd')}}"
+    database: "{{env_var('SEED_PROJECT', 'internal-data-stg-dev-27aa')}}"
     schema: 'bqdts_mapping'
     description: E-commerce data
     tables:
